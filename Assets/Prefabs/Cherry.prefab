@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 623287895608689366}
   - component: {fileID: 162759306344019950}
   - component: {fileID: 3815231830000714072}
-  m_Layer: 0
+  - component: {fileID: 2655249450916791133}
+  m_Layer: 10
   m_Name: Cherry
   m_TagString: Pick Up 2
   m_Icon: {fileID: 0}
@@ -152,3 +153,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2655249450916791133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2208298737886620895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6606c5dc5c16aa54fb01f5d231e58eed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

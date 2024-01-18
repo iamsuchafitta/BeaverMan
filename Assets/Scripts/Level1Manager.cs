@@ -23,9 +23,11 @@ public class Level1Manager : MonoBehaviour {
         if (this._itemsCollected >= 2) {
             // Предполагается, что нужно собрать 2 предмета
             this.nextLevelButton.gameObject.SetActive(true);
+            ProgressManager.Instance.PauseUnpause();
+            if (ProgressManager.Instance._lvlsCompleted < 1) ProgressManager.Instance.CompleteLevel();
         }
     }
-    
+
     public void NextLevel() {
         SceneManager.LoadScene("Level 2"); // в кавычках название сцены на которую осуществляется переход
     }

@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 3947902663720201089}
   - component: {fileID: 7469230501290490968}
   - component: {fileID: 5655364170520856978}
-  m_Layer: 0
+  - component: {fileID: 183985305519125075}
+  m_Layer: 10
   m_Name: Pear
   m_TagString: Pick Up 1
   m_Icon: {fileID: 0}
@@ -145,3 +146,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bounceHeight: 0.1
   bounceSpeed: 8
+--- !u!114 &183985305519125075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4254986404704361498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6606c5dc5c16aa54fb01f5d231e58eed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
