@@ -1,24 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Rotator : MonoBehaviour
-{
-    public float bounceHeight = 0.1f; // Высота подпрыгивания
-    public float bounceSpeed = 8f; // Скорость подпрыгивания
+public class Rotator : MonoBehaviour {
+    public float bounceHeight = 0.1f; // Р’С‹СЃРѕС‚Р° РїРѕРґРїСЂС‹РіРёРІР°РЅРёСЏ
+    public float bounceSpeed = 8f; // РЎРєРѕСЂРѕСЃС‚СЊ РїРѕРґРїСЂС‹РіРёРІР°РЅРёСЏ
 
-    private Vector3 initialPosition;
+    private Vector3 _initialPosition;
 
-    void Start()
-    {
-        // Сохраняем начальную позицию для возврата при подпрыгивании
-        initialPosition = transform.position;
+    private void Start() {
+        // РЎРѕС…СЂР°РЅСЏРµРј РЅР°С‡Р°Р»СЊРЅСѓСЋ РїРѕР·РёС†РёСЋ РґР»СЏ РІРѕР·РІСЂР°С‚Р° РїСЂРё РїРѕРґРїСЂС‹РіРёРІР°РЅРёРё
+        this._initialPosition = this.transform.position;
     }
 
-    void Update()
-    {
-        // Подпрыгивание вверх-вниз
-        float bounce = Mathf.Sin(Time.time * bounceSpeed) * bounceHeight;
-        transform.position = initialPosition + new Vector3(0f, bounce, 0f);
+    private void Update() {
+        // РџРѕРґРїСЂС‹РіРёРІР°РЅРёРµ РІРІРµСЂС…-РІРЅРёР·
+        var bounce = Mathf.Sin(Time.time * this.bounceSpeed) * this.bounceHeight;
+        this.transform.position = this._initialPosition + new Vector3(0f, bounce, 0f);
     }
 }

@@ -8,7 +8,7 @@ public class MainMenuScript : MonoBehaviour {
     void Start() {
         foreach (var button in this.buttons) {
             var lvlNumber = int.Parse(button.name[9..]);
-            button.interactable = lvlNumber <= ProgressManager.Instance._lvlsCompleted + 1;
+            button.interactable = lvlNumber <= ProgressManager.Instance.LevelsCompletedCount + 1;
         }
     }
 

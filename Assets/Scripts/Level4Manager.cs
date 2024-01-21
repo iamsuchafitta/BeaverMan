@@ -25,11 +25,10 @@ public class Level4Manager : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (this._isKeyCollected) return;
-        if (other.gameObject.CompareTag("FirstPlayer") || other.gameObject.CompareTag("SecondPlayer")) {
-            this._isKeyCollected = true;
-            this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
-            this.StartCoroutine(MoveDoor(this.door, this._hiddenPosition, this._originalPosition, this.moveTime));
-        }
+        if (!other.gameObject.CompareTag("FirstPlayer") && !other.gameObject.CompareTag("SecondPlayer")) return;
+        this._isKeyCollected = true;
+        this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        this.StartCoroutine(this.MoveDoor(this.door, this._hiddenPosition, this._originalPosition, this.moveTime));
     }
 
     private IEnumerator MoveDoor(GameObject movingDoor, Vector3 fromPos, Vector3 toPos, float duration) {
