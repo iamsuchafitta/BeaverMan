@@ -357,6 +357,7 @@ GameObject:
   - component: {fileID: 7501927454931779882}
   - component: {fileID: 2564979075914217566}
   - component: {fileID: -7417833871077769292}
+  - component: {fileID: 890157339391843012}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -410,6 +411,12 @@ MonoBehaviour:
   playersScoreUI: {fileID: 8430949740489257138}
   player1ScoreText: {fileID: 440695179959369606}
   player2ScoreText: {fileID: 4240065906147946295}
+  eatingAudios:
+  - {fileID: 8300000, guid: baa96855d79a21545a47446e6c7e5f02, type: 3}
+  - {fileID: 8300000, guid: 2ef00221ee08af24788470d40f79ba80, type: 3}
+  - {fileID: 8300000, guid: cf25e55710ef830489d9cac8567db44b, type: 3}
+  - {fileID: 8300000, guid: 13c322d527e9e13498b0683b1c519dc5, type: 3}
+  - {fileID: 8300000, guid: 9d1e41079a9c4f54a8e3e9d0b9bfd67e, type: 3}
 --- !u!114 &2564979075914217566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,6 +443,102 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   table: {fileID: 5223436107407521907}
   tableText: {fileID: 991835959894401308}
+--- !u!82 &890157339391843012
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2702165703161052739}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2935782708172048331
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,7 +574,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 130, y: -75.00002}
-  m_SizeDelta: {x: 198.8406, y: 65.4578}
+  m_SizeDelta: {x: 350, y: 65.4578}
   m_Pivot: {x: 0.00000008940697, y: 0.4999998}
 --- !u!222 &5436296228527404583
 CanvasRenderer:
@@ -503,8 +606,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0/0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c922cc7282d0d41409aea2c549ccba58, type: 2}
+  m_sharedMaterial: {fileID: -5361375342185021419, guid: c922cc7282d0d41409aea2c549ccba58,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -605,7 +709,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -130, y: -75}
-  m_SizeDelta: {x: 178.7367, y: 65.972}
+  m_SizeDelta: {x: 350, y: 65.972}
   m_Pivot: {x: 0.99999964, y: 0.49999985}
 --- !u!222 &4983206350303494030
 CanvasRenderer:
@@ -637,8 +741,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0/0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c922cc7282d0d41409aea2c549ccba58, type: 2}
+  m_sharedMaterial: {fileID: -5361375342185021419, guid: c922cc7282d0d41409aea2c549ccba58,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

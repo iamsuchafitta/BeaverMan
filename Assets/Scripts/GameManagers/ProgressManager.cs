@@ -1,3 +1,4 @@
+using System;
 using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
@@ -23,7 +24,12 @@ public class ProgressManager : MonoBehaviour {
             Instance = this;
             // this._lvlsCompleted = PlayerPrefs.GetInt("lvlsCompleted", 0);
         } else Destroy(this.gameObject);
+        SceneManager.sceneLoaded += this.OnSceneLoaded;
     }
+    
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode) => this.PauseUnpause(false);
+
+    private void OnDestroy() => SceneManager.sceneLoaded -= this.OnSceneLoaded;
 
     private void Update() {
         // Pause on Escape not in game main "Menu" scene
@@ -44,7 +50,7 @@ public class ProgressManager : MonoBehaviour {
         PlayerPrefs.SetInt("lvlsCompleted", this.LevelsCompletedCount);
     }
 
-    private void PauseUnpause(bool? isPause = null) {
+    public void PauseUnpause(bool? isPause = null) {
         Time.timeScale = isPause ?? !Time.timeScale.Equals(0) ? 0 : 1;
         this.pauseMenu.SetActive(isPause ?? !this.pauseMenu.activeSelf);
     }

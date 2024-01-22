@@ -28,15 +28,21 @@ public class CharacterController2D : MonoBehaviour {
     public bool isWasd = false;
     private float _horizontalMove = 0f;
 
+    private AudioSource _jumpAudioSource;
+    [SerializeField] private AudioClip[] jumpAudios;
+
     private void Awake() {
         this._mRigidbody2D = this.GetComponent<Rigidbody2D>();
         this._animator = this.GetComponent<Animator>();
+        this._jumpAudioSource = this.GetComponent<AudioSource>();
     }
 
     private void Update() {
         this._horizontalMove = Input.GetAxisRaw(this.isWasd ? "WASDHorizontal" : "ArrowsHorizontal") * this.runSpeed;
         this._animator.SetFloat("Speed", Mathf.Abs(this._horizontalMove));
-        if (!this._mGrounded || Input.GetKeyDown(this.isWasd ? KeyCode.W : KeyCode.UpArrow)) {
+        var jumpKeyPressed = Input.GetKeyDown(this.isWasd ? KeyCode.W : KeyCode.UpArrow);
+        if (!this._mGrounded || jumpKeyPressed) {
+            if (jumpKeyPressed && this._mGrounded) this.PlayRandomJumpSound();
             this._animator.SetBool("IsJumping", true);
         }
     }
@@ -79,6 +85,12 @@ public class CharacterController2D : MonoBehaviour {
             this._mRigidbody2D.AddForce(new Vector2(0f, this.mJumpForce));
             this._animator.SetBool("IsJumping", true);
         }
+    }
+
+    private void PlayRandomJumpSound() {
+        if (this._jumpAudioSource == null) return;
+        this._jumpAudioSource.clip = this.jumpAudios[Random.Range(0, this.jumpAudios.Length)];
+        this._jumpAudioSource.Play();
     }
 
     private void Flip() {
