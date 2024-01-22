@@ -17,7 +17,7 @@ public class Level4KeyScript : MonoBehaviour {
         this._originalPosition = this.door.transform.position;
         this._hiddenPosition = new Vector3(
             this._originalPosition.x,
-            this._originalPosition.y - 5,
+            this._originalPosition.y - 3,
             this._originalPosition.z
         );
         this.door.transform.position = this._hiddenPosition;

@@ -7,10 +7,10 @@ public class MainMenuScript : MonoBehaviour {
 
     private void Start() {
         foreach (var button in this.buttons) {
-            // T-O-D-O-: Uncomment this when levels are implemented
+            // TODO: Uncomment this when levels are implemented
             var lvlNumber = int.Parse(button.name[9..]);
-            button.interactable = lvlNumber <= ProgressManager.Instance.LevelsCompletedCount + 1;
-            button.interactable = true;
+            button.interactable = lvlNumber <= ProgressManager.LevelsCompletedCount + 1;
+            // button.interactable = true;
         }
     }
 

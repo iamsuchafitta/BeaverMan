@@ -1825,11 +1825,11 @@ RectTransform:
   m_Children:
   - {fileID: 221015160}
   - {fileID: 553470465}
-  m_Father: {fileID: 1710004847}
+  m_Father: {fileID: 1674990219}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -263, y: 137}
+  m_AnchoredPosition: {x: -198, y: 94}
   m_SizeDelta: {x: 350, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &713063039
@@ -4796,7 +4796,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -14}
+  m_AnchoredPosition: {x: -5.5, y: -14}
   m_SizeDelta: {x: 300, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1633753046
@@ -4863,10 +4863,9 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "To play as the first player:\r\n\u2022 \u2190 \u2014 movement to the left.\r\n\u2022
-    \u2192 \u2013 movement to the right.\r\n\u2022 \u2191\u2014jump.\r\n\u2022 \u2193
-    \u2013 down\r\n\r\nTo play as the\r second player:\r\n\u2022 A \u2013 movement
-    to the left.\r\n\u2022 D \u2013 movement to the right.\r\n\u2022 W \u2013 jump.\r\n\u2022
-    S \u2013 down"
+    \u2192 \u2013 movement to the right.\r\n\u2022 \u2191\u2014jump.\r\n\r\nTo play
+    as the\r second player:\r\n\u2022 A \u2013 movement to the left.\r\n\u2022 D
+    \u2013 movement to the right.\r\n\u2022 W \u2013 jump"
 --- !u!222 &1633753049
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4909,6 +4908,7 @@ RectTransform:
   - {fileID: 1900645914}
   - {fileID: 827186283}
   - {fileID: 1710004847}
+  - {fileID: 713063038}
   - {fileID: 1471026340}
   - {fileID: 308435504}
   - {fileID: 897743107}
@@ -5131,7 +5131,6 @@ RectTransform:
   m_Children:
   - {fileID: 1625790568}
   - {fileID: 118417709}
-  - {fileID: 713063038}
   m_Father: {fileID: 1674990219}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -6503,36 +6502,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1785844958758713275, guid: e18f6bc18eb943b42bc37f89cea7aef1,
-        type: 3}
-      propertyPath: eatingAudios.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1785844958758713275, guid: e18f6bc18eb943b42bc37f89cea7aef1,
-        type: 3}
-      propertyPath: eatingAudios.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: baa96855d79a21545a47446e6c7e5f02, type: 3}
-    - target: {fileID: 1785844958758713275, guid: e18f6bc18eb943b42bc37f89cea7aef1,
-        type: 3}
-      propertyPath: eatingAudios.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: 2ef00221ee08af24788470d40f79ba80, type: 3}
-    - target: {fileID: 1785844958758713275, guid: e18f6bc18eb943b42bc37f89cea7aef1,
-        type: 3}
-      propertyPath: eatingAudios.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: cf25e55710ef830489d9cac8567db44b, type: 3}
-    - target: {fileID: 1785844958758713275, guid: e18f6bc18eb943b42bc37f89cea7aef1,
-        type: 3}
-      propertyPath: eatingAudios.Array.data[3]
-      value: 
-      objectReference: {fileID: 8300000, guid: 13c322d527e9e13498b0683b1c519dc5, type: 3}
-    - target: {fileID: 1785844958758713275, guid: e18f6bc18eb943b42bc37f89cea7aef1,
-        type: 3}
-      propertyPath: eatingAudios.Array.data[4]
-      value: 
-      objectReference: {fileID: 8300000, guid: 9d1e41079a9c4f54a8e3e9d0b9bfd67e, type: 3}
     - target: {fileID: 2702165703161052739, guid: e18f6bc18eb943b42bc37f89cea7aef1,
         type: 3}
       propertyPath: m_Name

@@ -16,16 +16,18 @@ public class LevelManager : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI player1ScoreText;
     [SerializeField] private TextMeshProUGUI player2ScoreText;
     
-    private AudioSource eatingAudioSource;
+    private AudioSource _eatingAudioSource;
     [SerializeField] private AudioClip[] eatingAudios;
 
     private void Start() {
         this._finish = GameObject.FindGameObjectWithTag("Finish")?.transform;
         this._player1 = GameObject.FindGameObjectWithTag("FirstPlayer")?.transform;
         this._player2 = GameObject.FindGameObjectWithTag("SecondPlayer")?.transform;
-        this.eatingAudioSource = this.GetComponent<AudioSource>();
-        this._player1ScoreToWin = GameObject.FindGameObjectsWithTag("Pick Up 1").Length;
-        this._player2ScoreToWin = GameObject.FindGameObjectsWithTag("Pick Up 2").Length;
+        this._eatingAudioSource = this.GetComponent<AudioSource>();
+        this._player1ScoreToWin = Mathf.Min(GameObject.FindGameObjectsWithTag("Pick Up 1").Length, 2);
+        this._player2ScoreToWin = Mathf.Min(GameObject.FindGameObjectsWithTag("Pick Up 2").Length, 2);
+        // this._player1ScoreToWin = GameObject.FindGameObjectsWithTag("Pick Up 1").Length;
+        // this._player2ScoreToWin = GameObject.FindGameObjectsWithTag("Pick Up 2").Length;
         this.UpdatePlayersScoresText();
         this.ShowPlayersScoreUI(this._player1ScoreToWin != 0 || this._player2ScoreToWin != 0);
     }
@@ -59,9 +61,9 @@ public class LevelManager : MonoBehaviour {
     }
 
     private void PlayRandomEatingSound() {
-        if (this.eatingAudioSource == null) return;
-        this.eatingAudioSource.clip = this.eatingAudios[Random.Range(0, this.eatingAudios.Length)];
-        this.eatingAudioSource.Play();
+        if (this._eatingAudioSource == null) return;
+        this._eatingAudioSource.clip = this.eatingAudios[Random.Range(0, this.eatingAudios.Length)];
+        this._eatingAudioSource.Play();
     }
 
     private void ShowPlayersScoreUI(bool show) {
