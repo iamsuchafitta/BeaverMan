@@ -101,4 +101,10 @@ public class CharacterController2D : MonoBehaviour {
         theScale.x *= -1;
         this.transform.localScale = theScale;
     }
+
+    public void Die()
+    {
+        this._animator.SetBool("isDead", true);
+        // ƒополнительные действи€ при смерти персонажа, например, отключение управлени€
+    }
 }
