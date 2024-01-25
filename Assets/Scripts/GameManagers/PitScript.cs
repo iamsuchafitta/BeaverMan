@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -23,15 +24,18 @@ public class PitScript : MonoBehaviour {
             var player1CellPos = pitTilemap.WorldToCell(this._player1.position);
             var player2CellPos = pitTilemap.WorldToCell(this._player2.position);
             // Проверяем, находятся ли игроки в клетках с тайлами в Tilemap Pit
-            Debug.Log("123");
             if (pitTilemap.HasTile(player1CellPos)) {
-                Debug.Log("true");
-                _player1.GetComponent<CharacterController2D>().Die();
-                ProgressManager.Instance.RestartLevel();
+                this._player1.GetComponent<CharacterController2D>().Die();
+                this.StartCoroutine(this.RestartLevel());
             } else if (pitTilemap.HasTile(player2CellPos)) {
-                _player2.GetComponent<CharacterController2D>().Die();
-                ProgressManager.Instance.RestartLevel();
+                this._player2.GetComponent<CharacterController2D>().Die();
+                this.StartCoroutine(this.RestartLevel());
             }
         }
+    }
+    
+    private IEnumerator<WaitForSeconds> RestartLevel() {
+        yield return new WaitForSeconds(2);
+        ProgressManager.Instance.RestartLevel();
     }
 }

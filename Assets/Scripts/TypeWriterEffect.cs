@@ -1,49 +1,21 @@
 using UnityEngine;
 using TMPro;
 
-public class TypewriterEffect : MonoBehaviour
-{
+public class TypewriterEffect : MonoBehaviour {
     public float typingSpeed = 0.1f;
-    public string fullText;
-
-    private string currentText = "";
-    private bool isTyping = false;
-
-    private void Start()
-    {
-        StartTyping();
+    [TextArea] [SerializeField] private string fullText;
+    private TextMeshProUGUI _textMeshProUGUI;
+    
+    private void Start() {
+        this._textMeshProUGUI = this.GetComponent<TextMeshProUGUI>();
+        this._textMeshProUGUI.text = "";
+        this.StartCoroutine(this.TypeText());
     }
 
-    private void Update()
-    {
-        if (isTyping)
-        {
-            currentText = fullText.Substring(0, Mathf.Min(fullText.Length, currentText.Length + 1));
-            GetComponent<TextMeshProUGUI>().text = currentText;
-
-            if (currentText == fullText)
-            {
-                isTyping = false;
-            }
+    private System.Collections.IEnumerator TypeText() {
+        foreach (var letter in this.fullText) {
+            this._textMeshProUGUI.text += letter;
+            yield return new WaitForSecondsRealtime(this.typingSpeed);
         }
-    }
-
-    public void StartTyping()
-    {
-        currentText = "";
-        isTyping = true;
-        StartCoroutine(TypeText());
-    }
-
-    private System.Collections.IEnumerator TypeText()
-    {
-        foreach (char letter in fullText)
-        {
-            currentText += letter;
-            GetComponent<TextMeshProUGUI>().text = currentText;
-            yield return new WaitForSecondsRealtime(typingSpeed);
-        }
-
-        isTyping = false;
     }
 }

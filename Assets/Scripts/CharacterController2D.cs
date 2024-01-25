@@ -102,9 +102,11 @@ public class CharacterController2D : MonoBehaviour {
         this.transform.localScale = theScale;
     }
 
-    public void Die()
-    {
+    public void Die() {
+        if (this._animator.GetBool("isDead")) return;
+        this.mAirControl = false;
+        this._mRigidbody2D.AddForce(new Vector2(0f, this.mJumpForce * 2));
         this._animator.SetBool("isDead", true);
-        // Дополнительные действия при смерти персонажа, например, отключение управления
+        // Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ РґРµР№СЃС‚РІРёСЏ РїСЂРё СЃРјРµСЂС‚Рё РїРµСЂСЃРѕРЅР°Р¶Р°, РЅР°РїСЂРёРјРµСЂ, РѕС‚РєР»СЋС‡РµРЅРёРµ СѓРїСЂР°РІР»РµРЅРёСЏ
     }
 }
