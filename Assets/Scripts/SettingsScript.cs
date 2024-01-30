@@ -15,44 +15,59 @@ public class SettingsScript : MonoBehaviour {
     public Dropdown qualityDropdown;
     public Slider volumeSlider;
     private const float CurrentVolume = 1f;
-    private Resolution[] _resolutions;
+    Resolution[] _resolutions;
 
     private static AudioSource _musicSource;
+    public GameObject musicObject;
 
     [FormerlySerializedAs("SettingsSavedText")]
     public GameObject settingsSavedText;
 
     private void Start() {
-        this.resolutionDropdown.ClearOptions();
-        var options = new List<string>();
-        this._resolutions = Screen.resolutions;
-        var currentResolutionIndex = 0;
+        resolutionDropdown.ClearOptions();
+        List<string> options = new List<string>();
+        _resolutions = Screen.resolutions;
+        int currentResolutionIndex = 0;
 
-        for (var i = 0; i < this._resolutions.Length; i++) {
-            var option = this._resolutions[i].width + "x" + this._resolutions[i].height + " " + this._resolutions[i].refreshRate + "Hz";
+        for (int i = 0; i < _resolutions.Length; i++)
+        {
+            string option = _resolutions[i].width + "x" + _resolutions[i].height + " " + _resolutions[i].refreshRate + "Hz";
             options.Add(option);
-            if (this._resolutions[i].width == Screen.currentResolution.width
-                && this._resolutions[i].height == Screen.currentResolution.height)
+            if (_resolutions[i].width == Screen.currentResolution.width
+                  && _resolutions[i].height == Screen.currentResolution.height)
                 currentResolutionIndex = i;
         }
 
-        this.resolutionDropdown.AddOptions(options);
-        this.resolutionDropdown.RefreshShownValue();
-        this.LoadSettings(currentResolutionIndex);
+        resolutionDropdown.AddOptions(options);
+        resolutionDropdown.RefreshShownValue();
+        LoadSettings(currentResolutionIndex);
     }
 
-    private void Awake() {
-        _musicSource = this.GetComponent<AudioSource>();
-        DontDestroyOnLoad(_musicSource.gameObject);
+    //private void Awake() {
+    //    _musicSource = GetComponent<AudioSource>();
+    //    DontDestroyOnLoad(_musicSource.gameObject);
+    //}
+
+    private void Awake()
+    {
+        if (musicObject != null)
+        {
+            _musicSource = musicObject.GetComponent<AudioSource>();
+        }
+        else
+        {
+            Debug.LogError("MusicObject не задан в SettingsScript");
+        }
     }
+
 
     public void SetVolumeSlider() {
-        var volume = this.volumeSlider.value;
-        this.SetVolume(volume);
+        var volume = volumeSlider.value;
+        SetVolume(volume);
     }
 
     public void SetVolume(float volume) {
-        this.audioMixer.SetFloat("Volume", volume);
+        audioMixer.SetFloat("Volume", volume);
     }
 
 
@@ -61,7 +76,7 @@ public class SettingsScript : MonoBehaviour {
     }
 
     public void SetResolution(int resolutionIndex) {
-        var resolution = this._resolutions[resolutionIndex];
+        var resolution = _resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width,
             resolution.height, Screen.fullScreen);
     }
@@ -76,8 +91,8 @@ public class SettingsScript : MonoBehaviour {
     }
 
     public void SaveSettings() {
-        PlayerPrefs.SetInt("QualitySettingPreference", this.qualityDropdown.value);
-        PlayerPrefs.SetInt("ResolutionPreference", this.resolutionDropdown.value);
+        PlayerPrefs.SetInt("QualitySettingPreference", qualityDropdown.value);
+        PlayerPrefs.SetInt("ResolutionPreference", resolutionDropdown.value);
         PlayerPrefs.SetInt("FullscreenPreference",
             Convert.ToInt32(Screen.fullScreen));
         PlayerPrefs.SetFloat("VolumePreference", CurrentVolume);

@@ -78,7 +78,7 @@ public class ProgressManager : MonoBehaviour {
     public void LoadMainMenu() => SceneManager.LoadScene("Menu");
 
     private void LoadNextLevel() {
-        var levelsCount = SceneManager.sceneCountInBuildSettings - 1;
+        var levelsCount = SceneManager.sceneCountInBuildSettings - 2;
         var currentSceneName = SceneManager.GetActiveScene().name;
         var currentSceneNumber = int.Parse(Regex.Match(currentSceneName, @"\d+$").Value);
         if (currentSceneNumber >= levelsCount) {
